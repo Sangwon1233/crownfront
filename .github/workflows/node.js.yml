@@ -15,35 +15,9 @@ jobs:
     - name: Remote deploy via SSH
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ secrets.43.201.27.65 }}
+        host: ${{ secrets.EC2_PUBLIC_IP }}
         username: ubuntu
-        key: ${{ secrets.-----BEGIN RSA PRIVATE KEY-----
-MIIEpAIBAAKCAQEAqXDeex/Y4BLCIg3Rndd3Q3CZt+iFv3gUEO+56Nq8eW2zma//
-rVydiWixzLA6+KNDl/b2CeP1QnRtxQqHQlEjCAOdI8RGUvtFvfc3ctV6CNNdaw4W
-yfVUsE9QlCC5OEyMYoAREA3R5NpmD2Ge5RotPRoo5pB6C8IURsLUrU4tK1JqUBPC
-HFYW5FzwWvnvSrjqm0+ARk4ZYaE3HahDsIRTU/zvNkdnRal7LecN3HoKV/w9cWYd
-3vm0sWwSUuPP//M1LFAXDvNxR0Q1wYmz3JpYELeDN62ik5241w37NviPPRHlCxuu
-FXmxI0NJdtC2nHFI85Som7Nuu7Ykm0aLpAiZNwIDAQABAoIBAFFNHROLBm8N0SSx
-6MCJ4Gn1n2yFH5ftsAMoY9X9Dq5dGu5FarLuW5DRMW77qHAhNo+2Kfw46zfF0d3X
-3WrOr7ZqtX2x8eRjOOWbt3lcQT/22z5A9mJVWxt2Ez3gLb97y2h/9q/zUaEzwgDj
-YHChjM9iu/lVnZoCt+P0HERD3JyKGPKTX12vN4Y2aZsJ3HsC3uE6AyyA2b4HHz7j
-qfjuByucO9hOO6viEsBLTRHRsbK1CMG9od+VbM+UE/lspwcC67VVM/b7MNjmYswh
-mFxGdGMO3AQHnn9XcsbJAxsYpmWPFms8DLGLFjBIWpqSjLllmQeyISXdHnCT+8XS
-J0gmxbECgYEA2d/qnLJFq5QbRuG5rphe/HILSDF1JRGiiI5wDZ5Ndci+y28QFr3c
-ND41R9T+ubFHhIju8QM6uSSCYNj03HKhTe5Eswa9lHZwMNhHm3drfqY0I7P++2Nj
-R9aw2OHiQexrMEbU5ddW195riisIMrc3hYu5OzRh/pJNZ0mr5c0IFdUCgYEAxxdG
-fJAHW0v5kTwAvbOs51aasFn66pXFnqsSChrw/8FNrVbjAdbWEGvsvERrJqxZjFJs
-wgoS3RhcJGoFWgAXYV7k10o9hDWBW8l9McvI5y2gBT2K+aX2h1rDNMM4QPzq7Wij
-ZOTdR0ZBPyJBTMgca31CJJMlkoCxXsFUuXUAPNsCgYEA0O9qjdpn9aKShebxqf11
-GaJEL3c+X84Jj+sIigbFQa7BSVW4mBZ6lZ8SeVBI9sqLSw4GFhqCtgnM/hMQvlcv
-WQyl1QkhxL3P2QePpAdhjpLUbWivnWQyUTIRZes4jv+pyyIiCEf5gApMFrQtqHUL
-SYY0nBIf54FluSdtMXLtzgECgYAMB6QCstE++wBBflatH8Y61EjUjxtSQWqHg967
-LZWSXqPK7Y0Z91lH9L2BQsEWvSNMD07zCpjJM0eeC6n3HjpLb+hz+dBtxK3kVfBy
-qdWh4mfg6S8Ulqqm0x0oewNTKfUoE0KMPigAvoYCwpcfhJfzBsaQXzPN/mi5SQVN
-j3xMMQKBgQCQkywbtOn8K/jeg/H81O4W0i7zsRpnJS9Bimn1u2xO1nK5QYxo+siL
-mDjH6C3yYrYDPoG0JzdQAlO9R9bXFPp0nfex4kj6iEmWtsO4rdmUNmtLWQc3+EL5
-KNYz+9V6zBBOQ3cHdVnuVeZuXZadZtAdJyONS07P6jifGC7Lr6J1lQ==
------END RSA PRIVATE KEY----- }}
+        key: ${{ secrets.secrets.EC2_PRIVATE_KEY }}
         script: |
           APP_DIR=/home/ubuntu/react-app
           
