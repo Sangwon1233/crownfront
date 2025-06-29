@@ -1,31 +1,59 @@
-name: Node.js CI
+name: React CI + EC2 Deploy
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [main]
 
 jobs:
-  deploy:
+# ────────────────────────── ① 로컬-CI 빌드 ──────────────────────────
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Remote deploy via SSH
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.EC2_PUBLIC_IP }}
-        username: ubuntu
-        key: ${{ secrets.EC2_PRIVATE_KEY }}
-        script: |
-          APP_DIR=/home/ubuntu/react-app
-          
-          cd $APP_DIR
-          git fetch --all
-          git reset --hard origin/${GITHUB_REF_NAME}
+      - name: Setup Node & Yarn
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20            # 필요 버전
+          cache: yarn                 # yarn.lock 기반 캐시
 
-          yarn --frozen-lockfile   # 의존성
-          yarn build              # dist/ 생성
+      - name: Install deps
+        run: yarn --frozen-lockfile
 
-          sudo systemctl reload nginx
+      - name: Build (Vite)
+        run: yarn build               # dist/ 생성
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist                  # 폴더 전체 업로드
+
+# ────────────────────────── ② EC2 배포 ──────────────────────────
+  deploy:
+    needs: build                      # 빌드가 성공해야만 실행
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+
+      # dist → EC2 (증분 복사)
+      - name: Copy dist to EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_PUBLIC_IP }}
+          username: ${{ secrets.EC2_USER || 'ubuntu' }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
+          source: dist/
+          target: /home/ubuntu/react-app/
+          rm: true                    # target 쪽 기존 파일 삭제 후 동기화
+
+      # Nginx 가볍게 reload
+      - name: Reload Nginx
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_PUBLIC_IP }}
+          username: ${{ secrets.EC2_USER || 'ubuntu' }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
+          script: sudo systemctl reload nginx
