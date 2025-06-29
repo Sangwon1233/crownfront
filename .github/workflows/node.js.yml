@@ -20,12 +20,7 @@ jobs:
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         script: |
           APP_DIR=/home/ubuntu/react-app
-
-          # 처음이면 레포 클론
-          if [ ! -d "$APP_DIR/.git" ]; then
-            git clone https://github.com/${{ github.repository }} $APP_DIR
-          fi
-
+          
           cd $APP_DIR
           git fetch --all
           git reset --hard origin/${GITHUB_REF_NAME}
