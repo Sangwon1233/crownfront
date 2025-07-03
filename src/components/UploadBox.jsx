@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import defaultImage from "../assets/face.svg";
+import '../styles/UploadBox.css';
 
 const UploadBox = ()=> {
   const [previewUrl ,setPreviewUrl] = useState(null);

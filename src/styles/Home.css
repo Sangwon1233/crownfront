@@ -1,0 +1,110 @@
+/* src/styles/Home.css */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Adjust as needed, e.g., center for more vertical centering */
+    min-height: 100vh; /* Full viewport height */
+    padding: 20px;
+    box-sizing: border-box;
+    /* Background from the image - assuming a leafy/natural pattern */
+    /* You'll need to create or find this image and place it in your assets folder */
+    background-image: url('../assets/background_pattern.png');
+    background-size: cover;
+    background-position: center;
+    color: #333; /* Default text color */
+}
+
+.home-container h1 {
+    font-size: 2.5em; /* Adjust size as needed */
+    color: #4CAF50; /* A green color that fits the natural theme */
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Hashtags section */
+.home-container .hashtags {
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95em;
+    font-weight: bold;
+}
+
+.home-container .hashtags span {
+    display: block; /* Each hashtag group on a new line */
+}
+
+/* Share section */
+.home-container .share-section {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-container .share-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #4CAF50; /* Green for "공유하기" */
+    margin-bottom: 15px;
+}
+
+.home-container .share-icons {
+    display: flex;
+    gap: 15px; /* Space between icons */
+    margin-bottom: 20px;
+}
+
+.home-container .share-icon {
+    width: 40px; /* Size of social media icons */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.home-container .share-icon:hover {
+    transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+.home-container .copy-link-button {
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px; /* Rounded button */
+    font-size: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.home-container .copy-link-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.home-container .copy-link-button::before {
+    content: "🔗"; /* Link icon */
+    font-size: 1.2em;
+}
+
+/* Disclaimer text */
+.home-container .disclaimer-text {
+    margin-top: 40px;
+    font-size: 0.85em;
+    color: #d32f2f; /* Red color for disclaimer */
+    text-align: center;
+    line-height: 1.5;
+    max-width: 80%; /* Prevent text from being too wide */
+}
+
+.home-container .disclaimer-text strong {
+    font-weight: bold;
+}
