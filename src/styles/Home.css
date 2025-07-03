@@ -67,13 +67,18 @@
 }
 
 .home-container .share-icon {
-    width: 40px; /* Size of social media icons */
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+    background-color: white; /* 흰 배경 추가 */
+    border: 1px solid #ddd;  /* 얇은 회색 테두리 추가 */
+    padding: 6px;            /* 내부 여백으로 정렬감 부여 */
+  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* 그림자 강화 */
     transition: transform 0.2s ease-in-out;
-}
+  }
 
 .home-container .share-icon:hover {
     transform: translateY(-3px); /* Slight lift effect on hover */

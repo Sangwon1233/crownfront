@@ -17,13 +17,77 @@ const Home = () => {
       <div className="share-section">
         <div className="share-text">공유하기</div>
         <div className="share-icons">
-          {/* Replace with actual social media icons or SVGs */}
-          <img src="/path/to/naver_icon.png" alt="Naver" className="share-icon" />
-          <img src="/path/to/instagram_icon.png" alt="Instagram" className="share-icon" />
-          <img src="/path/to/twitter_icon.png" alt="Twitter" className="share-icon" />
-          <img src="/path/to/facebook_icon.png" alt="Facebook" className="share-icon" />
-          <img src="/path/to/kakao_talk_icon.png" alt="KakaoTalk" className="share-icon" />
-        </div>
+  {/* Naver */}
+  <a
+    href="https://www.naver.com/"
+    title="N 아이콘 제작자: Freepik - Flaticon"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/8142/8142645.png"
+      alt="Naver"
+      className="share-icon"
+    />
+  </a>
+
+  {/* Instagram */}
+  <a
+    href="https://www.instagram.com/"
+    title="Instagram 아이콘 제작자: Laisa Islam Ani - Flaticon"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/3955/3955024.png"
+      alt="Instagram"
+      className="share-icon"
+    />
+  </a>
+
+  {/* Twitter */}
+  <a
+    href="https://twitter.com/"
+    title="Twitter 아이콘 제작자: Fathema Khanom - Flaticon"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png"
+      alt="Twitter"
+      className="share-icon"
+    />
+  </a>
+
+  {/* Facebook */}
+  <a
+    href="https://www.facebook.com/"
+    title="Facebook 아이콘 제작자: Freepik - Flaticon"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/145/145802.png"
+      alt="Facebook"
+      className="share-icon"
+    />
+  </a>
+
+  {/* KakaoTalk */}
+  <a
+    href="https://www.kakaocorp.com/service/KakaoTalk"
+    title="KakaoTalk 아이콘 제작자: Fathema Khanom - Flaticon"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/3669/3669973.png"
+      alt="KakaoTalk"
+      className="share-icon"
+    />
+  </a>
+</div>
+
         <button className="copy-link-button">
           링크 복사하기
         </button>
