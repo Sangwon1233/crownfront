@@ -1,0 +1,47 @@
+/* src/components/Header/Header.module.css */
+
+.hero-header {
+    /* 이 헤더는 이제 배경처럼 전체 너비를 채웁니다. */
+    position: absolute; /* .app-container를 기준으로 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px; /* 헤더의 높이 (이 높이만큼 콘텐츠 시작 위치를 밀어내야 함) */
+    overflow: hidden;
+    z-index: 5; /* content-wrapper보다 아래, body보다 위 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.header-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100vw; /* 뷰포트 너비 100%를 채움 */
+    min-height: 100%; /* 부모 .hero-header의 100% 높이를 채움 */
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+/* 헤더 내의 콘텐츠 (제목, 문구)는 여전히 중앙에 오도록 */
+.header-content {
+    position: relative;
+    z-index: 1; /* 비디오 위에 오도록 */
+    text-align: center;
+    padding: 20px;
+}
+
+.header-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.header-content p {
+    font-size: 1em;
+}

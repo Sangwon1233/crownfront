@@ -1,12 +1,21 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Header from './components/layout/Header/Header'; // Header 컴포넌트 임포트
+
+import './App.css'; // 전역 CSS 파일을 임포트
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <div className="app-wrapper">
+        <Header/>
+        <div className="content-wrapper">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
+      </div>
     </Router>
   );
 }

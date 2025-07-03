@@ -1,5 +1,6 @@
 import React from "react";
 import UploadBox from "../components/UploadBox.jsx"
+import Header from "../components/layout/Header/Header.jsx";
 import '../styles/Home.css';
 
 const Home = () => {
@@ -9,8 +10,8 @@ const Home = () => {
       <UploadBox /> {/* Self-closing tag */}
       {/* Add the Hashtags section */}
       <div className="hashtags">
-          <span>#Hashtags #Follow #Like</span>
-          <span>#관상 MBTI #얼굴 MBTI #관상은 과학</span>
+        <span>#Hashtags #Follow #Like</span>
+        <span>#관상 MBTI #얼굴 MBTI #관상은 과학</span>
       </div>
       {/* Add the Share section */}
       <div className="share-section">

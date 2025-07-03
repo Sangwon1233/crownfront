@@ -1,19 +1,27 @@
-/* src/styles/Home.css */
+.main-content-area {
+    /* Header의 높이(200px)만큼 상단 마진을 주어 Header와 겹치지 않게 합니다. */
+    margin-top: 200px;
+    width: 100%; /* 부모 .content-wrapper
+}
 
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Adjust as needed, e.g., center for more vertical centering */
-    min-height: 100vh; /* Full viewport height */
-    padding: 20px;
+    width: 100%; /* 부모인 .content-wrapper의 100% 너비를 사용 */
+    /* 이제 content-wrapper에 padding-top이 있으므로, home-container에는 margin-top을 줄 필요 없음 */
+    /* min-height: calc(100vh - 200px); /* 이 계산은 Home이 남은 높이를 채울 때 의미. */
+                                    /* content-wrapper가 flex-grow:1 이므로, Home은 그 안에서 100% 높이 가능 */
+    min-height: 100%; /* content-wrapper의 남은 공간을 최대한 채우도록 */
+    padding: 20px 0; /* 상하 패딩 유지 */
     box-sizing: border-box;
-    /* Background from the image - assuming a leafy/natural pattern */
-    /* You'll need to create or find this image and place it in your assets folder */
+
     background-image: url('../assets/background_pattern.png');
     background-size: cover;
     background-position: center;
-    color: #333; /* Default text color */
+    color: #333;
+
+    display: flex; /* Home 컴포넌트 내부의 자식들을 중앙 정렬하기 위해 유지 */
+    flex-direction: column;
+    align-items: center; /* 내부 요소들 (UploadBox, Hashtags 등)을 가로 중앙 정렬 */
+    justify-content: flex-start; /* 또는 space-between 등 필요에 따라 세로 정렬 */
 }
 
 .home-container h1 {
