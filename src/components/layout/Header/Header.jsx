@@ -24,8 +24,9 @@ const Header = () => {
         <nav className="dropdown-menu">
           <ul>
             <li><a href="/">홈</a></li>
-            <li><a href="/about">소개</a></li>
-            <li><a href="/upload">업로드</a></li>
+            <li><a href="/today">오늘의 운세</a></li>
+            <li><a href="/hand">손금 분석</a></li>
+            <li><a href="/animal">띠별 운세</a></li>
           </ul>
         </nav>
       )}

@@ -1,6 +1,7 @@
 import React from "react";
 import UploadBox from "../components/UploadBox.jsx"
 import Header from "../components/layout/Header/Header.jsx";
+import CopyLinkButton from '../components/CopyLinkButton';
 import '../styles/Home.css';
 
 const Home = () => {
@@ -87,10 +88,7 @@ const Home = () => {
             />
           </a>
         </div>
-
-        <button className="copy-link-button">
-          링크 복사하기
-        </button>
+        <CopyLinkButton />
       </div>
       {/* Add the Disclaimer text */}
       <div className="disclaimer-text">
