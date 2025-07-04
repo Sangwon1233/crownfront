@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .main-content-area {
     /* Header의 높이(200px)만큼 상단 마진을 주어 Header와 겹치지 않게 합니다. */
     margin-top: 200px;
