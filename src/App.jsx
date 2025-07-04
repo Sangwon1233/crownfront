@@ -12,6 +12,7 @@ function App() {
       <div className="app-wrapper">
         <Header/>
         <div className="content-wrapper">
+        <h1 className="text-3xl font-bold underline italic">Vite + React</h1>;
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>

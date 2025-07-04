@@ -1,6 +1,14 @@
+/* App.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 기존 App.css 스타일 밑에 유지 */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+}
+
 
 html, body, #root {
   margin: 0;
