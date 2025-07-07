@@ -4,14 +4,12 @@ import torchVideo from '../../../assets/torch.mp4';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <header className="hero-header">
-      <video autoPlay loop muted playsInline className="header-video">
+    <header className="hero-header relative z-20">
+      <video autoPlay loop muted playsInline className="header-video absolute top-0 left-0 w-full h-full object-cover z-10">
         <source src={torchVideo} type="video/mp4" />
-        Your browser does not support the video tag.
       </video>
 
       <div className="hamburger-menu" onClick={toggleMenu}>

@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import defaultImage from "../assets/face.svg";
 import '../styles/UploadBox.css';
+
+const defaultImage = new URL("../assets/face.svg", import.meta.url).href;
 
 const UploadBox = ()=> {
   const [previewUrl ,setPreviewUrl] = useState(null);
@@ -21,7 +22,6 @@ const UploadBox = ()=> {
         <img
           id="previewImage"
           src={previewUrl || defaultImage}
-          alt="얼굴 사진 미리보기"
         />
         <div className="camera-icon">📷</div>
         <input

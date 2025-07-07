@@ -3,10 +3,12 @@ import UploadBox from "../components/UploadBox.jsx"
 import Header from "../components/layout/Header/Header.jsx";
 import CopyLinkButton from '../components/CopyLinkButton';
 import '../styles/Home.css';
+import backgroundImage from '../assets/backimage.jpg';
 
 const Home = () => {
   return (
-    <div className="home-container">
+    <div  className="home-container bg-cover bg-center min-h-screen"
+     style={{ backgroundImage: `url(${backgroundImage})` }}>
       <h1>관상 분석</h1>
       <UploadBox /> {/* Self-closing tag */}
       {/* Add the Hashtags section */}
