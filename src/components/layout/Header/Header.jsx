@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
-import torchVideo from '../../../assets/torch.mp4';
+import torchVideo from '../../../assets/torchEdit.mp4';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
