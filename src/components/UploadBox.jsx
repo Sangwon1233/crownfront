@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/UploadBox.css";
 
 const defaultImage = new URL("../assets/face.svg", import.meta.url).href;
-const API_BASE = "http://127.0.0.1:5000/api/v1"; // 배포 시 주소 변경
+const API_BASE = "http://3.35.218.157:5000/api/v1";
 
 const UploadBox = () => {
   const [file, setFile] = useState(null);
@@ -46,9 +46,11 @@ const UploadBox = () => {
         throw new Error(text);
       }
 
+      // 여기가 중요! 전체 json 중에서 필요한 값만 분리해서 set
       const json = await res.json();
-      setResponseText(JSON.stringify(json, null, 2));
-      setAnnotatedImgUrl(json.annotated_image || null);
+      setResponseText(json.interpretation); // 👈 해석 텍스트만 보여주자
+      setAnnotatedImgUrl(json.annotated_image); // 👈 이건 <img>에 자동 반영됨
+
     } catch (err) {
       setResponseText("ERROR:\n" + err.message);
       setAnnotatedImgUrl(null);
@@ -85,6 +87,14 @@ const UploadBox = () => {
         </button>
       </div>
 
+      {/* 선 그려진 이미지 출력 */}
+      {annotatedImgUrl && (
+        <div style={{ marginTop: "1rem" }}>
+          <h3>분석 이미지</h3>
+          <img src={annotatedImgUrl} alt="annotated" style={{ maxWidth: "100%" }} />
+        </div>
+      )}
+      
       {/* 응답 출력 */}
       {responseText && (
         <pre
@@ -99,13 +109,6 @@ const UploadBox = () => {
         </pre>
       )}
 
-      {/* 선 그려진 이미지 출력 */}
-      {annotatedImgUrl && (
-        <div style={{ marginTop: "1rem" }}>
-          <h3>분석 이미지</h3>
-          <img src={annotatedImgUrl} alt="annotated" style={{ maxWidth: "100%" }} />
-        </div>
-      )}
     </div>
   );
 };
