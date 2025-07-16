@@ -2,16 +2,14 @@ import React from "react";
 import UploadBox from "../components/UploadBox.jsx"
 import Header from "../components/layout/Header/Header.jsx";
 import CopyLinkButton from '../components/CopyLinkButton';
-import '../styles/Home.css';
-import backgroundImage from '../assets/background.jpg';
+import '../styles/Home.css';import backgroundImage from '../assets/background.jpg';
 
 const Home = () => {
   return (
     <div  className="home-container bg-cover bg-center min-h-screen"
      style={{ backgroundImage: `url(${backgroundImage})` }}>
       <br>
-      </br>
-      <h1>관상 분석</h1>
+      </br>      <h1>관상 분석</h1>
       <UploadBox /> {/* Self-closing tag */}
       {/* Add the Hashtags section */}
       <div className="hashtags">
