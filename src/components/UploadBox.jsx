@@ -71,9 +71,18 @@ const UploadBox = () => {
         />
       </label>
 
+        {/* LLM 선택 */}
+      <div style={{ marginTop: "1rem" }}>
+        <label>LLM 선택:</label>
+        <select value={llm} onChange={(e) => setLlm(e.target.value)}>
+          <option value="gpt">GPT</option>
+          <option value="gemini">Gemini</option>
+        </select>
+      </div>
+
       {/* 버튼들 */}
       <div style={{ marginTop: "1rem" }}>
-        <button  class="copy-link-button px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded" onClick={() => postImageToAPI("interpret", { llm })}>
+        <button onClick={() => postImageToAPI("interpret", { llm })}>
           나의 관상보기
         </button>
       </div>
