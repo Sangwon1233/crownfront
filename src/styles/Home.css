@@ -134,3 +134,201 @@
 .home-container .disclaimer-text strong {
     font-weight: bold;
 }
+
+/* 메인 타이틀 스타일 */
+.home-container .main-subtitle {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* 가이드 섹션 스타일 */
+.home-container .guide-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 1000px;
+}
+
+.home-container .guide-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.home-container .guide-icon {
+    margin-right: 10px;
+}
+
+.home-container .steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.home-container .step-card {
+    text-align: center;
+    padding: 25px;
+    border-radius: 15px;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+.home-container .step-card:hover {
+    transform: translateY(-5px);
+}
+
+.home-container .step-blue {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+}
+
+.home-container .step-green {
+    background: linear-gradient(135deg, #e8f5e8, #c8e6c8);
+}
+
+.home-container .step-purple {
+    background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+}
+
+.home-container .step-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    margin: 0 auto 20px;
+}
+
+.step-blue .step-number {
+    background: #2196f3;
+}
+
+.step-green .step-number {
+    background: #4caf50;
+}
+
+.step-purple .step-number {
+    background: #9c27b0;
+}
+
+.home-container .step-card h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.home-container .step-card p {
+    font-size: 0.95em;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.home-container .step-detail {
+    font-size: 0.8em;
+    color: #999;
+    font-weight: 500;
+}
+
+/* 분석 섹션 스타일 */
+.home-container .analysis-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 1000px;
+}
+
+.home-container .analysis-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.home-container .analysis-icon {
+    margin-right: 10px;
+}
+
+.home-container .analysis-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.home-container .analysis-card {
+    border: 2px solid;
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.home-container .analysis-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.home-container .analysis-blue {
+    border-color: #bbdefb;
+    background: linear-gradient(135deg, #f8fbff, #e3f2fd);
+}
+
+.home-container .analysis-blue:hover {
+    border-color: #2196f3;
+}
+
+.home-container .analysis-green {
+    border-color: #c8e6c8;
+    background: linear-gradient(135deg, #f8fff8, #e8f5e8);
+}
+
+.home-container .analysis-green:hover {
+    border-color: #4caf50;
+}
+
+.home-container .analysis-purple {
+    border-color: #e1bee7;
+    background: linear-gradient(135deg, #fdf7ff, #f3e5f5);
+}
+
+.home-container .analysis-purple:hover {
+    border-color: #9c27b0;
+}
+
+.home-container .analysis-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.home-container .analysis-emoji {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.home-container .analysis-card h3 {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.home-container .analysis-card p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
