@@ -4,10 +4,11 @@
 .main-content-area {
     /* Header의 높이(200px)만큼 상단 마진을 주어 Header와 겹치지 않게 합니다. */
     margin-top: 200px;
-    width: 100%; /* 부모 .content-wrapper
-}
+    width: 100%;
+    }
+    
+    .home-container {
 
-.home-container {
     width: 100%; /* 부모인 .content-wrapper의 100% 너비를 사용 */
     /* 이제 content-wrapper에 padding-top이 있으므로, home-container에는 margin-top을 줄 필요 없음 */
     /* min-height: calc(100vh - 200px); /* 이 계산은 Home이 남은 높이를 채울 때 의미. */
@@ -16,10 +17,13 @@
     padding: 20px 0; /* 상하 패딩 유지 */
     box-sizing: border-box;
 
+    z-index: 0;
     background-image: url('../assets/background_pattern.png');
     background-size: cover;
     background-position: center;
     color: #333;
+    
+    /* 폰트 패밀리 추가 */
 
     display: flex; /* Home 컴포넌트 내부의 자식들을 중앙 정렬하기 위해 유지 */
     flex-direction: column;

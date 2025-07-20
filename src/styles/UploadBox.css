@@ -4,7 +4,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px; /* Space below the upload box */
+    margin-bottom: 24px;
+    gap: 20px;
+    padding: 20px;
 }
 
 .upload-box {
@@ -12,52 +14,321 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 250px; /* Adjust size as needed */
-    height: 250px; /* Adjust size as needed */
-    border-radius: 20px; /* Rounded corners like in the image */
-    background-color: #e0f2f7; /* Light blue background as seen in the image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 280px;
+    height: 280px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(34, 197, 94, 0.1) 50%, rgba(74, 222, 128, 0.1) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(16, 185, 129, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     cursor: pointer;
-    overflow: hidden; /* Ensure image doesn't overflow rounded corners */
-    position: relative; /* For positioning the camera icon and text */
-    margin-bottom: 15px; /* Space between the box and text/hashtags below */
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(0);
+}
+
+.upload-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(135deg, #10b981, #22c55e, #4ade80, #06d6a0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.upload-box:hover::before {
+    opacity: 1;
 }
 
 .upload-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover the area, cropping if necessary */
-    border-radius: 20px; /* Match the parent's border-radius */
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .upload-box:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly more prominent shadow on hover */
+    transform: translateY(-8px);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(34, 197, 94, 0.15) 50%, rgba(74, 222, 128, 0.15) 100%);
+    box-shadow: 
+        0 20px 40px rgba(16, 185, 129, 0.12),
+        0 8px 16px rgba(34, 197, 94, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.upload-box::before {
-    content: "클릭하여 얼굴사진을 넣어주세요."; /* Text above the image */
-    position: absolute;
-    top: 20px; /* Adjust vertical position */
-    color: #555; /* Darker grey for text */
-    font-size: 0.9em;
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
-    z-index: 1; /* Ensure text is above the image if needed */
+.upload-box:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.1) saturate(1.1);
 }
 
+.upload-box:active {
+    transform: translateY(-4px);
+    transition: transform 0.1s ease;
+}
+
+/* Camera icon with green theme */
 .camera-icon {
     position: absolute;
-    bottom: 15px; /* Adjust vertical position */
-    right: 15px; /* Adjust horizontal position */
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-    border-radius: 50%; /* Circular icon */
-    padding: 10px;
-    font-size: 1.5em;
-    color: #fff; /* White camera icon */
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #10b981, #22c55e);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1; /* Ensure camera icon is above the image */
+    font-size: 1.4rem;
+    color: white;
+    box-shadow: 
+        0 4px 12px rgba(16, 185, 129, 0.4),
+        0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.upload-box:hover .camera-icon {
+    transform: scale(1.1) rotate(-5deg);
+    background: linear-gradient(135deg, #059669, #16a34a);
+    box-shadow: 
+        0 6px 20px rgba(16, 185, 129, 0.6),
+        0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* LLM Selection Styling */
+.upload-box-wrapper > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, rgba(220, 252, 231, 0.8), rgba(187, 247, 208, 0.8));
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.05);
+    transition: all 0.3s ease;
+}
+
+.upload-box-wrapper > div:hover {
+    background: linear-gradient(135deg, rgba(220, 252, 231, 0.9), rgba(187, 247, 208, 0.9));
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.1);
+}
+
+.upload-box-wrapper label {
+    font-weight: 600;
+    color: #065f46;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.upload-box-wrapper select {
+    padding: 8px 16px;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #065f46;
+    font-weight: 500;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-box-wrapper select:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.upload-box-wrapper select:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: #22c55e;
+}
+
+/* Button Styling */
+.upload-box-wrapper button {
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #10b981, #22c55e);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 
+        0 4px 12px rgba(16, 185, 129, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.05);
+    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-box-wrapper button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.upload-box-wrapper button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #059669, #16a34a);
+    box-shadow: 
+        0 8px 20px rgba(16, 185, 129, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upload-box-wrapper button:hover::before {
+    opacity: 1;
+}
+
+.upload-box-wrapper button:active {
+    transform: translateY(0);
+}
+
+/* Results Display */
+.upload-box-wrapper h3 {
+    color: #065f46;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    text-align: center;
+}
+
+.upload-box-wrapper img[alt="annotated"] {
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.upload-box-wrapper img[alt="annotated"]:hover {
+    transform: scale(1.02);
+}
+
+.upload-box-wrapper pre {
+    background: linear-gradient(135deg, rgba(240, 253, 244, 0.9), rgba(220, 252, 231, 0.9));
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 16px;
+    padding: 20px;
+    color: #065f46;
+    font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    margin: 0;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.05);
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Loading state animation */
+.upload-box.loading {
+    pointer-events: none;
+}
+
+.upload-box.loading::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.4), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Drag and drop states */
+.upload-box.drag-over {
+    transform: translateY(-8px) scale(1.02);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(34, 197, 94, 0.2) 100%);
+    border-color: #10b981;
+    box-shadow: 
+        0 20px 40px rgba(16, 185, 129, 0.15),
+        0 8px 16px rgba(34, 197, 94, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .upload-box {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(34, 197, 94, 0.15) 100%);
+        border-color: rgba(34, 197, 94, 0.3);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+    
+    .upload-box-wrapper > div {
+        background: linear-gradient(135deg, rgba(20, 83, 45, 0.8), rgba(22, 101, 52, 0.8));
+        border-color: rgba(34, 197, 94, 0.3);
+    }
+    
+    .upload-box-wrapper label {
+        color: #a7f3d0;
+    }
+    
+    .upload-box-wrapper select {
+        background: rgba(0, 0, 0, 0.5);
+        color: #a7f3d0;
+        border-color: rgba(34, 197, 94, 0.4);
+    }
+    
+    .upload-box-wrapper h3 {
+        color: #a7f3d0;
+    }
+    
+    .upload-box-wrapper pre {
+        background: linear-gradient(135deg, rgba(20, 83, 45, 0.9), rgba(22, 101, 52, 0.9));
+        color: #a7f3d0;
+        border-color: rgba(34, 197, 94, 0.3);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .upload-box {
+        width: 240px;
+        height: 240px;
+        border-radius: 20px;
+    }
+    
+    .camera-icon {
+        width: 40px;
+        height: 40px;
+        bottom: 16px;
+        right: 16px;
+        border-radius: 12px;
+    }
+    
+    .upload-box-wrapper button {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+    
+    .upload-box-wrapper > div {
+        padding: 12px 16px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .upload-box-wrapper pre {
+        padding: 16px;
+        font-size: 0.85rem;
+    }
 }

@@ -1,97 +1,199 @@
-/* src/components/Header/Header.module.css */
-
-.hero-header {
-    /* 이 헤더는 이제 배경처럼 전체 너비를 채웁니다. */
-    position: absolute; /* .app-container를 기준으로 위치 */
+/* 스크린 리더용 숨김 클래스 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  /* 기존 Header 스타일 + 접근성 개선 */
+  .hero-header {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 200px; /* 헤더의 높이 (이 높이만큼 콘텐츠 시작 위치를 밀어내야 함) */
-    overflow: hidden;
-    z-index: 5; /* content-wrapper보다 아래, body보다 위 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.header-video {
+    height: 200px;
+    z-index: 20;
+    overflow: visible;
+  }
+  
+  .header-video {
     position: absolute;
-    inset: 0;              /* top: 0; right: 0; bottom: 0; left: 0 한 번에 처리 */
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: 10;
-    filter: brightness(0.6);
-}
-
-
-/* 헤더 내의 콘텐츠 (제목, 문구)는 여전히 중앙에 오도록 */
-.header-content {
-    position: relative;
-    z-index: 1; /* 비디오 위에 오도록 */
-    text-align: center;
-    padding: 20px;
-}
-
-.header-content h1 {
-    font-size: 2.5em;
-    margin-bottom: 5px;
-}
-
-.header-content p {
-    font-size: 1em;
-}
-
-.hamburger-menu {
+  }
+  
+  /* 햄버거 메뉴 버튼 - 접근성 개선 */
+  .hamburger-menu {
     position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 10;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 24px;
-}
-
-.hamburger-menu .bar {
     width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 30;
+    padding: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger-menu:hover {
+    transform: scale(1.1);
+  }
+  
+  /* 포커스 상태 (키보드 접근성) */
+  .hamburger-menu:focus {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+  }
+  
+  .hamburger-menu .bar {
+    width: 100%;
     height: 3px;
-    background-color: white;
-    margin: 3px 0;
+    background-color: #fff;
     border-radius: 2px;
     transition: all 0.3s ease;
-}
-
-.dropdown-menu {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .hamburger-menu:hover .bar {
+    background-color: #667eea;
+  }
+  
+  /* 드롭다운 메뉴 */
+  .dropdown-menu {
     position: absolute;
-    top: 60px;
+    top: 70px;
     right: 20px;
-    background-color: rgba(0, 0, 0, 0.85);
-    padding: 12px 16px;
-    border-radius: 8px;
-    z-index: 9;
-}
-
-.dropdown-menu ul {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    box-shadow: 0 20px 64px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 200px;
+    z-index: 9999 !important;
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .dropdown-menu ul {
     list-style: none;
+    padding: 12px 0;
     margin: 0;
-    padding: 0;
-}
-
-.dropdown-menu li {
-    margin: 10px 0;
-}
-
-.dropdown-menu a {
-    color: white;
+  }
+  
+  .dropdown-menu li {
+    margin: 0;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
     text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-}
-
-.dropdown-menu a:hover {
-    color: #ddd;
-}
+    color: #1a1a1a;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+  }
+  
+  .dropdown-menu a:hover,
+  .dropdown-menu a:focus {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(139, 92, 246, 0.1));
+    border-left-color: #667eea;
+    color: #667eea;
+    outline: none;
+  }
+  
+  /* 현재 페이지 표시 */
+  .dropdown-menu a.current-page {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(139, 92, 246, 0.15));
+    border-left-color: #667eea;
+    color: #667eea;
+    font-weight: 600;
+  }
+  
+  /* 모바일 최적화 */
+  @media (max-width: 768px) {
+    .hamburger-menu {
+      top: 15px;
+      right: 15px;
+      width: 28px;
+      height: 22px;
+    }
+    
+    .dropdown-menu {
+      top: 60px;
+      right: 15px;
+      min-width: 180px;
+    }
+    
+    .dropdown-menu a {
+      padding: 14px 18px;
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* 다크모드 지원 */
+  @media (prefers-color-scheme: dark) {
+    .dropdown-menu {
+      background: rgba(26, 26, 26, 0.95);
+    }
+    
+    .dropdown-menu a {
+      color: #f3f4f6;
+    }
+    
+    .dropdown-menu a:hover,
+    .dropdown-menu a:focus {
+      color: #667eea;
+    }
+  }
+  
+  /* 고대비 모드 지원 */
+  @media (prefers-contrast: high) {
+    .hamburger-menu:focus {
+      outline: 3px solid #000;
+    }
+    
+    .dropdown-menu {
+      border: 2px solid #000;
+    }
+  }
+  
+  /* 애니메이션 감소 설정 사용자 고려 */
+  @media (prefers-reduced-motion: reduce) {
+    .hamburger-menu,
+    .hamburger-menu .bar,
+    .dropdown-menu a,
+    .dropdown-menu {
+      transition: none;
+    }
+    
+    .dropdown-menu {
+      animation: none;
+    }
+  }

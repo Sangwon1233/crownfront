@@ -18,7 +18,7 @@ html, body, #root {
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   background-color: #f0f0f0; /* 앱 전체의 기본 배경색 (만약 홈 컨테이너 배경이 덮지 않는 부분이 있다면) */
   line-height: 1.5;
   color: #333;
