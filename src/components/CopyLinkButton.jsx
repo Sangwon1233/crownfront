@@ -18,7 +18,7 @@ const CopyLinkButton = () => {
       onClick={handleCopy}
       className="copy-link-button px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded"
     >
-      {copied ? '복사됨 ✅' : '링크 복사하기'}
+      {copied ? '복사완료 ✅' : '링크 복사하기'}
     </button>
   );
 };
