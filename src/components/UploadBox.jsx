@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/UploadBox.css";
 
 const defaultImage = new URL("../assets/face.svg", import.meta.url).href;
-const API_BASE = "http://3.35.218.157:5000/api/v1";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "/api"; //백엔드 api 호출
 
 const UploadBox = () => {
   const [file, setFile] = useState(null);
@@ -82,7 +82,7 @@ const UploadBox = () => {
 
       {/* 버튼들 */}
       <div style={{ marginTop: "1rem" }}>
-        <button onClick={() => postImageToAPI("interpret", { llm })}>
+        <button onClick={() => postImageToAPI("v1/interpret", { llm })}>
           나의 관상보기
         </button>
       </div>
