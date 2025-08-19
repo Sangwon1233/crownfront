@@ -4,7 +4,7 @@ import './Header.css';
 import torchVideo from '../../../assets/torchEdit.mp4';
 
 const Header = ({ 
-  pageTitle = "손금으로 보는 운세 분석", 
+  pageTitle = "사진으로 보는 관상", 
   pageDescription = "AI 기술로 손금을 분석하여 정확한 운세를 제공합니다. 사주, 띠별 운세, 오늘의 운세까지 한번에 확인하세요.",
   pageKeywords = "손금, 운세, 사주, 띠별운세, AI손금분석, 오늘의운세, 무료운세",
   currentPath = "/"
