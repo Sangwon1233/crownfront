@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "../styles/UploadBox.css";
 
 const defaultImage = new URL("../assets/face.svg", import.meta.url).href;
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "/api"; //백엔드 api 호출
+const RAW_BASE = import.meta.env.VITE_API_BASE_URL || "/api";
+const API_BASE = RAW_BASE.replace(/\/+$/, ""); // 끝 슬래시 제거
 
 const UploadBox = () => {
   const [file, setFile] = useState(null);
@@ -36,7 +37,8 @@ const UploadBox = () => {
     );
 
     try {
-      const res = await fetch(`${API_BASE}/${endpoint}`, {
+      const url = `${API_BASE}/${String(endpoint).replace(/^\/+/, "")}`;
+      const res = await fetch(url, {
         method: "POST",
         body: formData,
       });
@@ -48,8 +50,9 @@ const UploadBox = () => {
 
       // 여기가 중요! 전체 json 중에서 필요한 값만 분리해서 set
       const json = await res.json();
-      setResponseText(json.interpretation); // 👈 해석 텍스트만 보여주자
-      setAnnotatedImgUrl(json.annotated_image); // 👈 이건 <img>에 자동 반영됨
+      setResponseText(json.interpretation || "");
+      const toAbs = (u) => (u?.startsWith("http") ? u : `${API_BASE}/${String(u || "").replace(/^\/+/, "")}`);
+      setAnnotatedImgUrl(toAbs(json.annotated_image));
 
     } catch (err) {
       setResponseText("ERROR:\n" + err.message);
@@ -82,7 +85,7 @@ const UploadBox = () => {
 
       {/* 버튼들 */}
       <div style={{ marginTop: "1rem" }}>
-        <button onClick={() => postImageToAPI("v1/interpret", { llm })}>
+        <button onClick={() => postImageToAPI("interpret", { llm })}>
           나의 관상보기
         </button>
       </div>
