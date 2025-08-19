@@ -51,7 +51,10 @@ const UploadBox = () => {
       // 여기가 중요! 전체 json 중에서 필요한 값만 분리해서 set
       const json = await res.json();
       setResponseText(json.interpretation || "");
-      const toAbs = (u) => (u?.startsWith("http") ? u : `${API_BASE}/${String(u || "").replace(/^\/+/, "")}`);
+      const toAbs = (u) =>
+        (u?.startsWith("http") || u?.startsWith("data:"))
+          ? u
+          : `${API_BASE}/${String(u || "").replace(/^\/+/, "")}`;
       setAnnotatedImgUrl(toAbs(json.annotated_image));
 
     } catch (err) {
