@@ -76,13 +76,9 @@ export const useAnalysisStore = create(set => ({
 6. 실행 예시
 # 개발 서버 실행
 yarn dev
-# or
-npm run dev
 
 # 빌드
 yarn build
-# or
-npm run build
 
 # 로컬 빌드 미리보기
 yarn preview
