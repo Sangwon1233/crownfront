@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import "../styles/UploadBox.css";
+import { useState } from 'react';
 
 const defaultImage = new URL("../assets/face.svg", import.meta.url).href;
 const RAW_BASE = import.meta.env.VITE_API_BASE_URL || "/api/v1";
