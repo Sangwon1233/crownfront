@@ -109,6 +109,7 @@ const UploadBox = () => {
             padding: "1rem",
             whiteSpace: "pre-wrap",
             marginTop: "1rem",
+            color: "#000",
           }}
         >
           {responseText}
