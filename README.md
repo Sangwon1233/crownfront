@@ -64,8 +64,6 @@ Zustand 사용
 사용자 업로드 이미지, 분석 결과, 로딩 상태를 전역으로 관리
 
 javascript
-복사
-편집
 import { create } from 'zustand';
 
 export const useAnalysisStore = create(set => ({
@@ -76,9 +74,6 @@ export const useAnalysisStore = create(set => ({
 }));
 
 6. 실행 예시
-bash
-복사
-편집
 # 개발 서버 실행
 yarn dev
 # or
