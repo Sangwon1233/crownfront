@@ -4,6 +4,7 @@ import "../styles/UploadBox.css";
 const defaultImage = new URL("../assets/face.svg", import.meta.url).href;
 const RAW_BASE = import.meta.env.VITE_API_BASE_URL || "/api/v1";
 const API_BASE = RAW_BASE.replace(/\/+$/, ""); // 끝 슬래시 제거
+const [loading, setLoading] = useState(false);
 
 const UploadBox = () => {
   const [file, setFile] = useState(null);
@@ -30,11 +31,14 @@ const UploadBox = () => {
       return;
     }
 
+    
     const formData = new FormData();
     formData.append("image", file);
     Object.entries(extraFields).forEach(([key, value]) =>
       formData.append(key, value)
-    );
+  );
+  
+    setLoading(true); // ✅ 시작 시 로딩 true
 
     try {
       const url = `${API_BASE}/${String(endpoint).replace(/^\/+/, "")}`;
@@ -60,6 +64,8 @@ const UploadBox = () => {
     } catch (err) {
       setResponseText("ERROR:\n" + err.message);
       setAnnotatedImgUrl(null);
+    } finally {
+      setLoading(false);   // ✅ 성공/실패 상관없이 무조건 실행
     }
   };
 
@@ -88,9 +94,13 @@ const UploadBox = () => {
 
       {/* 버튼들 */}
       <div style={{ marginTop: "1rem" }}>
-        <button onClick={() => postImageToAPI("interpret", { llm })}>
-          나의 관상보기
-        </button>
+        {loading ? (
+          <p style={{ color: "#333", fontWeight: "bold" }}>얼굴 관상 분석 중...</p>
+        ) : (
+          <button onClick={() => postImageToAPI("interpret", { llm })}>
+            나의 관상보기
+          </button>
+        )}
       </div>
 
       {/* 선 그려진 이미지 출력 */}
