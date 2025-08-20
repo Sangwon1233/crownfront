@@ -30,8 +30,6 @@ yarn install
 # or
 npm install
 
-# 환경변수 설정 (.env)
-VITE_API_BASE_URL=https://api.crown.unoeyhi.site/api
 
 3. 주요 페이지 구조
 src/
