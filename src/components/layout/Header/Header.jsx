@@ -109,7 +109,7 @@ const Header = ({
           Your browser does not support the video tag.
         </video>
 
-        {/* 햄버거 메뉴 버튼 */}
+        {/* 햄버거 메뉴 버튼
         <button
           className="hamburger-menu"
           onClick={toggleMenu}
@@ -123,7 +123,7 @@ const Header = ({
           <span className="bar" aria-hidden="true"></span>
           <span className="bar" aria-hidden="true"></span>
           <span className="sr-only">메뉴</span>
-        </button>
+        </button> */}
 
         {/* 드롭다운 네비게이션 */}
         {menuOpen && (
