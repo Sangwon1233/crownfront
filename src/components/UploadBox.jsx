@@ -4,9 +4,9 @@ import { useState } from 'react';
 const defaultImage = new URL("../assets/face.svg", import.meta.url).href;
 const RAW_BASE = import.meta.env.VITE_API_BASE_URL || "/api/v1";
 const API_BASE = RAW_BASE.replace(/\/+$/, ""); // 끝 슬래시 제거
-const [loading, setLoading] = useState(false);
 
 const UploadBox = () => {
+  const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [annotatedImgUrl, setAnnotatedImgUrl] = useState(null);
