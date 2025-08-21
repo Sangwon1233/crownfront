@@ -37,7 +37,7 @@ const Home = () => {
   </ol>
 </div>
       <UploadBox /> {/* Self-closing tag */}
-      Add the Hashtags section
+      {/* Add the Hashtags section */}
       <div className="hashtags">
         <span>#Hashtags #Follow #Like</span>
         <span>#관상 MBTI #얼굴 MBTI #관상은 과학</span>
