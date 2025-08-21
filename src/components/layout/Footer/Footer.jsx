@@ -56,24 +56,30 @@ const Footer = () => {
         <div style={styles.contactInfo}>
           <p>
             <strong>이메일:</strong> 
-            <a href="mailto:support@gwansang-science.com" style={styles.link}>
-              support@gwansang-science.com
+            <a href="tkddnjs8097@gmail.com" style={styles.link}>
+              tkddnjs8097@gmail.com
             </a>
           </p>
           <p>
             <strong>GitHub:</strong> 
             <a 
-              href="https://github.com/gwansang-science" 
+              href="https://github.com/Sangwon1233/crownfront" 
               style={styles.link}
               target="_blank" 
               rel="noopener noreferrer"
               title="관상은 과학이다 GitHub 저장소"
             >
-              github.com/gwansang-science
+              https://github.com/Sangwon1233/crownfront
             </a>
-          </p>
-          <p>
-            <strong>버전:</strong> v2.1.0
+            <a 
+              href="https://github.com/Sangwon1233/crownback" 
+              style={styles.link}
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="관상은 과학이다 GitHub 저장소"
+            >
+              https://github.com/Sangwon1233/crownback
+            </a>
           </p>
           <p style={styles.support}>
             💡 궁금한 점이 있으시면 언제든 문의해주세요!
@@ -137,8 +143,6 @@ const Footer = () => {
         
         {/* 지역화 및 언어 */}
         <div style={styles.localization}>
-          <span style={styles.location}>🇰🇷 대한민국 서비스</span>
-          <span style={styles.language}>한국어 | English (Coming Soon)</span>
         </div>
       </div>
     </footer>
