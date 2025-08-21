@@ -225,7 +225,7 @@ const styles = {
     lineHeight: '2',
   },
   link: {
-    color: '#ecf0f1',
+    color: '#fff',
     textDecoration: 'none',
     transition: 'color 0.3s ease, text-decoration 0.3s ease',
     borderBottom: '1px solid transparent',
