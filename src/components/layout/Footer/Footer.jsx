@@ -60,39 +60,41 @@ const Footer = () => {
               tkddnjs8097@gmail.com
             </a>
           </p>
-          <p>
-           <strong>GitHub:</strong>
-            <ul className="list-none pl-0 m-0">
+          <div>
+            <h4 className="mb-2 font-semibold underline">GitHub</h4>
+            <ul className="space-y-1">
               <li>
-                <a 
-                  href="https://github.com/Sangwon1233/crownfront" 
-                  style={styles.link}
-                  target="_blank" 
+                <a
+                  href="https://github.com/Sangwon1233/crownfront"
+                  target="_blank"
                   rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white hover:underline break-words"
                   title="관상은 과학이다 Frontend 저장소"
                 >
-                  https://github.com/Sangwon1233/crownfront
+                  <GitHubIcon />
+                  crownfront
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://github.com/Sangwon1233/crownback" 
-                  style={styles.link}
-                  target="_blank" 
+                <a
+                  href="https://github.com/Sangwon1233/crownback"
+                  target="_blank"
                   rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white hover:underline break-words"
                   title="관상은 과학이다 Backend 저장소"
                 >
-                  https://github.com/Sangwon1233/crownback
+                  <GitHubIcon />
+                  crownback
                 </a>
               </li>
             </ul>
-          </p>
+          </div>
           <p style={styles.support}>
             💡 궁금한 점이 있으시면 언제든 문의해주세요!
           </p>
         </div>
         
-        {/* 소셜 미디어 링크 */}
+        {/* 소셜 미디어 링크
         <div style={styles.socialSection}>
           <h6 style={styles.socialTitle}>팔로우하기</h6>
           <div style={styles.socialLinks}>
@@ -127,7 +129,7 @@ const Footer = () => {
               📺 YouTube
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* 하단 법적 정보 */}
