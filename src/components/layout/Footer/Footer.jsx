@@ -66,35 +66,29 @@ const Footer = () => {
               tkddnjs8097@gmail.com
             </a>
           </p>
-          <div>
-            <h4 className="mb-2 font-semibold underline">GitHub</h4>
-            <ul className="space-y-1">
-              <ul className="list-disc pl-4 m-0">
-                <li>
-                  <a
-                    href="https://github.com/Sangwon1233/crownfront"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-gray-300 hover:text-white hover:underline break-words"
-                    title="관상은 과학이다 Frontend 저장소"
-                  >
-                    <GitHubIcon />
-                    crownfront
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/Sangwon1233/crownback"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-gray-300 hover:text-white hover:underline break-words"
-                    title="관상은 과학이다 Backend 저장소"
-                  >
-                    <GitHubIcon />
-                    crownback
-                  </a>
-                </li>
-              </ul>
+          <div style={{ textAlign: 'left' }}>
+            <h4 style={{ marginBottom: 8, textDecoration: 'underline', fontWeight: 600 }}>GitHub</h4>
+            <ul style={{ listStyleType: 'disc', paddingLeft: 18, margin: 0 }}>
+              <li>
+                <a
+                  href="https://github.com/Sangwon1233/crownfront"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ ...styles.link, display: 'inline-flex', alignItems: 'center', gap: 8 }}
+                >
+                  <GitHubIcon /> crownfront
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/Sangwon1233/crownback"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ ...styles.link, display: 'inline-flex', alignItems: 'center', gap: 8 }}
+                >
+                  <GitHubIcon /> crownback
+                </a>
+              </li>
             </ul>
           </div>
           <p style={styles.support}>
