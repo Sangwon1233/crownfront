@@ -37,89 +37,37 @@ const Home = () => {
   </ol>
 </div>
       <UploadBox /> {/* Self-closing tag */}
-
-
-      {/* Add the Hashtags section */}
+      Add the Hashtags section
       <div className="hashtags">
         <span>#Hashtags #Follow #Like</span>
         <span>#관상 MBTI #얼굴 MBTI #관상은 과학</span>
       </div>
       {/* Add the Share section */}
-      <div className="share-section">
-        <div className="share-text">공유하기</div>
-        <div className="share-icons">
-          {/* Naver */}
-          <a
-            href="https://www.naver.com/"
-            title="N 아이콘 제작자: Freepik - Flaticon"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/8142/8142645.png"
-              alt="Naver"
-              className="share-icon"
-            />
-          </a>
-
-          {/* Instagram */}
-          <a
-            href="https://www.instagram.com/"
-            title="Instagram 아이콘 제작자: Laisa Islam Ani - Flaticon"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3955/3955024.png"
-              alt="Instagram"
-              className="share-icon"
-            />
-          </a>
-
-          {/* Twitter */}
-          <a
-            href="https://twitter.com/"
-            title="Twitter 아이콘 제작자: Fathema Khanom - Flaticon"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png"
-              alt="Twitter"
-              className="share-icon"
-            />
-          </a>
-
-          {/* Facebook */}
-          <a
-            href="https://www.facebook.com/"
-            title="Facebook 아이콘 제작자: Freepik - Flaticon"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/145/145802.png"
-              alt="Facebook"
-              className="share-icon"
-            />
-          </a>
-
-          {/* KakaoTalk */}
-          <a
-            href="https://www.kakaocorp.com/service/KakaoTalk"
-            title="KakaoTalk 아이콘 제작자: Fathema Khanom - Flaticon"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3669/3669973.png"
-              alt="KakaoTalk"
-              className="share-icon"
-            />
-          </a>
+      
+      {/* 공유하기 섹션 비활성화 */}
+      {false && (
+        <div className="share-section">
+          <div className="share-text">공유하기</div>
+          <div className="share-icons">
+            <a href="https://www.naver.com/" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn-icons-png.flaticon.com/512/8142/8142645.png" alt="Naver" className="share-icon" />
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn-icons-png.flaticon.com/512/3955/3955024.png" alt="Instagram" className="share-icon" />
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png" alt="Twitter" className="share-icon" />
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" className="share-icon" />
+            </a>
+            <a href="https://www.kakaocorp.com/service/KakaoTalk" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn-icons-png.flaticon.com/512/3669/3669973.png" alt="KakaoTalk" className="share-icon" />
+            </a>
+          </div>
+          <CopyLinkButton />
         </div>
-        <CopyLinkButton />
-      </div>
+      )}
       {/* Add the Disclaimer text */}
       <div className="disclaimer-text">
         * 사진은 시스템에 절대 저장되지 않습니다.<br />
