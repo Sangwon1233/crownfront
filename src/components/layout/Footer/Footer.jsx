@@ -69,30 +69,32 @@ const Footer = () => {
           <div>
             <h4 className="mb-2 font-semibold underline">GitHub</h4>
             <ul className="space-y-1">
-              <li>
-                <a
-                  href="https://github.com/Sangwon1233/crownfront"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white hover:underline break-words"
-                  title="관상은 과학이다 Frontend 저장소"
-                >
-                  <GitHubIcon />
-                  crownfront
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/Sangwon1233/crownback"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white hover:underline break-words"
-                  title="관상은 과학이다 Backend 저장소"
-                >
-                  <GitHubIcon />
-                  crownback
-                </a>
-              </li>
+              <ul className="list-disc pl-4 m-0">
+                <li>
+                  <a
+                    href="https://github.com/Sangwon1233/crownfront"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-gray-300 hover:text-white hover:underline break-words"
+                    title="관상은 과학이다 Frontend 저장소"
+                  >
+                    <GitHubIcon />
+                    crownfront
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/Sangwon1233/crownback"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-gray-300 hover:text-white hover:underline break-words"
+                    title="관상은 과학이다 Backend 저장소"
+                  >
+                    <GitHubIcon />
+                    crownback
+                  </a>
+                </li>
+              </ul>
             </ul>
           </div>
           <p style={styles.support}>
