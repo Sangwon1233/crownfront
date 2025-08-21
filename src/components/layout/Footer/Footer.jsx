@@ -61,25 +61,31 @@ const Footer = () => {
             </a>
           </p>
           <p>
-            <strong>GitHub:</strong> 
-            <a 
-              href="https://github.com/Sangwon1233/crownfront" 
-              style={styles.link}
-              target="_blank" 
-              rel="noopener noreferrer"
-              title="관상은 과학이다 GitHub 저장소"
-            >
-              https://github.com/Sangwon1233/crownfront
-            </a>
-            <a 
-              href="https://github.com/Sangwon1233/crownback" 
-              style={styles.link}
-              target="_blank" 
-              rel="noopener noreferrer"
-              title="관상은 과학이다 GitHub 저장소"
-            >
-              https://github.com/Sangwon1233/crownback
-            </a>
+            <strong>GitHub:</strong>
+            <ul style="list-style-type: none; padding-left: 0; margin: 0;">
+              <li>
+                <a 
+                  href="https://github.com/Sangwon1233/crownfront" 
+                  style={styles.link}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="관상은 과학이다 Frontend 저장소"
+                >
+                  https://github.com/Sangwon1233/crownfront
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://github.com/Sangwon1233/crownback" 
+                  style={styles.link}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="관상은 과학이다 Backend 저장소"
+                >
+                  https://github.com/Sangwon1233/crownback
+                </a>
+              </li>
+            </ul>
           </p>
           <p style={styles.support}>
             💡 궁금한 점이 있으시면 언제든 문의해주세요!
