@@ -61,8 +61,8 @@ const Footer = () => {
             </a>
           </p>
           <p>
-            <strong>GitHub:</strong>
-            <ul style="list-style-type: none; padding-left: 0; margin: 0;">
+           <strong>GitHub:</strong>
+            <ul className="list-none pl-0 m-0">
               <li>
                 <a 
                   href="https://github.com/Sangwon1233/crownfront" 
